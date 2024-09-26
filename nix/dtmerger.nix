@@ -1,10 +1,10 @@
 { stdenv
 , lib
-, writeShellScript
+, writeShellScriptBin
 , libraspberrypi
 } :
 
-writeShellScript "dtmerger.sh" ''
+writeShellScriptBin "dtmerger.sh" ''
   O=${../ov5647.dtbo}
   D=$(dirname $O)
   exec ${libraspberrypi}/bin/dtoverlay -d $D $O

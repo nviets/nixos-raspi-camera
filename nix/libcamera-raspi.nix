@@ -40,6 +40,7 @@ stdenv.mkDerivation rec {
 
   patches = [
     ./libcamera-installed.patch
+    ./libcamera-no-timeout.patch
   ];
 
   outputs = [ "out" "dev" ];
