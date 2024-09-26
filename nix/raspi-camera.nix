@@ -10,7 +10,10 @@ with lib;
   };
 
   config = let
-    libcamera = pkgs.callPackage ./libcamera-rapsi.nix {};
+    libpisp = pkgs.callPackage ./libpisp.nix {};
+    libcamera = pkgs.callPackage ./libcamera-raspi.nix {
+      inherit libpisp;
+    };
   in {
 
     environment.systemPackages = with pkgs; [

@@ -12,16 +12,10 @@
     };
   };
 
-  outputs = { self, nixpkgs }:
-    let
-      module = system : (import ./nix/raspi-camera.nix) {
-        pkgs = import nixpkgs { inherit system; };
-      };
-      aarch64-linux = "aarch64-linux";
-    in {
-      nixosModules = {
-        "${aarch64-linux}" = module aarch64-linux;
-      };
+  outputs = { self, nixpkgs }: {
+    nixosModules = {
+      raspi-camera = import ./nix/raspi-camera.nix;
     };
+  };
 }
 
