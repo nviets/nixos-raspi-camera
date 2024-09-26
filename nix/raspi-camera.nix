@@ -14,10 +14,12 @@ with lib;
     libcamera = pkgs.callPackage ./libcamera-raspi.nix {
       inherit libpisp;
     };
+    dtmerger = pkgs.callPackage ./dtmerger.nix {};
   in {
 
     environment.systemPackages = with pkgs; [
       libcamera
+      dtmerger
     ];
   };
 }
