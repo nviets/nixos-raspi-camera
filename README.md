@@ -151,7 +151,7 @@ Unfortunately, the method does not work for us, with the TIMEOUT symptoms, simil
 described [here](https://forums.raspberrypi.com/viewtopic.php?t=323609). Removing `arm64bit=1` is
 not an option, however, because NixOS only supports 64bit mode for now.
 
-A workaround was to switch to
+A workaround was to [switch](#video-streaming-using-the-rpicam-apps-works) to
 [rpicam-apps](https://www.raspberrypi.com/documentation/computers/camera_software.html#rpicam-vid).
 
 
