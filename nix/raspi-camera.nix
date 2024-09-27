@@ -20,6 +20,19 @@ with lib;
     };
   in {
 
+    systemd.services.tweaks = {
+      script = ''
+        ${dtmerger}/bin/dtmerger.sh
+      '';
+      wantedBy = [ "multi-user.target" ];
+    };
+
+    services.udev = {
+      extraRules = ''
+        SUBSYSTEM=="dma_heap", GROUP="video", MODE="0660"
+      '';
+    };
+
     nixpkgs.config.permittedInsecurePackages = [
       "libav-11.12"
     ];
