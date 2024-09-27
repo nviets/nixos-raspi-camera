@@ -153,7 +153,7 @@ env = {
 };
 ```
 
-A related reports:
+Related reports:
 
 * [Meson no longer able to pick up Boost](https://github.com/NixOS/nixpkgs/issues/86131#issuecomment-620155616)
 
