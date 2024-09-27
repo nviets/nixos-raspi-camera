@@ -15,7 +15,7 @@ Contents
 * [Usage notes](#usage-notes)
     * [Detecting the camera](#detecting-the-camera)
     * [Making a snapshot](#making-a-snapshot)
-    * [Video streaming using the rpicam-apps (works)](#video-streaming-using-the-rpicam-apps-works)
+    * [Video streaming using the rpicam-apps TCP mode (works)](#video-streaming-using-the-rpicam-apps-tcp-mode-works)
     * [Video streaming via the Gstreamer module shipped with libcamera (does not work)](#video-streaming-via-the-gstreamer-module-shipped-with-libcamera-does-not-work)
 * [Problems](#problems)
     * [Where to find device tree overlay sources for the camera?](#where-to-find-device-tree-overlay-sources-for-the-camera)
@@ -87,9 +87,9 @@ Available cameras:
 
 TODO
 
-### Video streaming using the rpicam-apps (works)
+### Video streaming using the rpicam-apps TCP mode (works)
 
-https://github.com/raspberrypi/rpicam-apps
+https://www.raspberrypi.com/documentation/computers/camera_software.html#tcp
 
 Raspberry PI:
 
@@ -167,7 +167,7 @@ Sadly, we see the TIMEOUT failures, similar to what is described [in this raspi 
 thread](https://forums.raspberrypi.com/viewtopic.php?t=323609). Unfortunately, removing `arm64bit=1`
 from the `/boot/config.txt` is not an option because NixOS only supports 64bit.
 
-The workaround was to [switch](#video-streaming-using-the-rpicam-apps-works) to
+The workaround was to [switch](#video-streaming-using-the-rpicam-apps-tcp-mode-works) to
 `rpicam-apps`.
 
 
