@@ -148,11 +148,11 @@ Libcamera docs describe a
 [neat way to run the streaming using Gstreamer](https://github.com/raspberrypi/libcamera?tab=readme-ov-file#using-gstreamer-plugin)
 alone.
 
-Unfortunately, the method does not work for us, with the TIMEOUT symptoms, similar to what is
-described [here](https://forums.raspberrypi.com/viewtopic.php?t=323609). Removing `arm64bit=1` is
-not an option, however, because NixOS only supports 64bit mode for now.
+Sadly, we see the TIMEOUT failures, similar to what is described [in the raspi forum
+thread](https://forums.raspberrypi.com/viewtopic.php?t=323609). Unfortunately, removing `arm64bit=1`
+from the `/boot/config.txt` is not an option because NixOS only supports 64bit.
 
-A workaround was to [switch](#video-streaming-using-the-rpicam-apps-works) to
-[rpicam-apps](https://www.raspberrypi.com/documentation/computers/camera_software.html#rpicam-vid).
+The workaround was to [switch](#video-streaming-using-the-rpicam-apps-works) to
+`rpicam-apps`.
 
 
