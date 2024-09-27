@@ -91,7 +91,22 @@ TODO
 
 https://github.com/raspberrypi/rpicam-apps
 
-TODO
+Raspberry PI:
+
+``` shell
+$ rpicam-vid -t 0 --inline --listen -o tcp://0.0.0.0:5000
+```
+
+Client:
+
+``` shell
+$ vlc tcp/h264://10.0.0.80:5000
+```
+
+Downsides:
+
+* Only one connection at a time
+* Server crashes on disconnect
 
 ### Video streaming via the Gstreamer module shipped with libcamera (does not work)
 
