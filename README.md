@@ -148,7 +148,7 @@ Libcamera docs describe a
 [neat way to run the streaming using Gstreamer](https://github.com/raspberrypi/libcamera?tab=readme-ov-file#using-gstreamer-plugin)
 alone.
 
-Sadly, we see the TIMEOUT failures, similar to what is described [in the raspi forum
+Sadly, we see the TIMEOUT failures, similar to what is described [in this raspi forum
 thread](https://forums.raspberrypi.com/viewtopic.php?t=323609). Unfortunately, removing `arm64bit=1`
 from the `/boot/config.txt` is not an option because NixOS only supports 64bit.
 
