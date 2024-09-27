@@ -125,7 +125,7 @@ practices](https://wiki.nixos.org/wiki/NixOS_on_ARM/Raspberry_Pi#Device_trees), 
 [binary device tree overlay](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/ov5647.dtbo)
 from the Raspberry Pi firmware repo. Where can one find the sources of this overlay?
 
-### Meson buildsystem does not detects boost on NixOS
+### Meson buildsystem does not detect boost on NixOS
 
 A workaround in [raspi-camera.nix](./nix/raspi-camera.nix)
 
