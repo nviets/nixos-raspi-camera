@@ -15,11 +15,19 @@ with lib;
       inherit libpisp;
     };
     dtmerger = pkgs.callPackage ./dtmerger.nix {};
+    rpicam-apps = pkgs.callPackage ./rpicam-apps.nix {
+      inherit libpisp libcamera;
+    };
   in {
+
+    nixpkgs.config.permittedInsecurePackages = [
+      "libav-11.12"
+    ];
 
     environment.systemPackages = with pkgs; [
       libcamera
       dtmerger
+      rpicam-apps
     ];
   };
 }

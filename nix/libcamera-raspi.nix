@@ -128,11 +128,5 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "An open source camera stack and framework for Linux, Android, and ChromeOS";
     homepage = "https://libcamera.org";
-    license = licenses.lgpl2Plus;
-    maintainers = with maintainers; [ citadelcore ];
-    badPlatforms = [
-      # Mandatory shared libraries.
-      lib.systems.inspect.platformPatterns.isStatic
-    ];
   };
 }

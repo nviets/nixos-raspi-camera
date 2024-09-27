@@ -5,19 +5,28 @@
 , ninja
 , libcamera
 , libpisp
-, ninja
 , python3
 , python3Packages
 , pkg-config
+, boost
+, cmake
+, libav
+, ffmpeg
+, libexif
+, libjpeg
+, libtiff
+, libpng
+, libdrm
 }:
 
 stdenv.mkDerivation rec {
   pname = "rpicam-apps";
-  version = "v1.5.1";
+  version = "1.5.1";
 
   src = fetchgit {
     url = "https://github.com/raspberrypi/rpicam-apps";
     rev = "v${version}";
+    hash = "sha256-rl5GVigiZWXkpfIteRWUMjtCaPweXRWrBrZOjQ1hiU8=";
     # hash = "sha256-KH30jmHfxXq4j2CL7kv18DYECJRp9ECuWNPnqPZajPA=";
   };
 
@@ -32,6 +41,13 @@ stdenv.mkDerivation rec {
   buildInputs = [
     libcamera
     libpisp
+    libav
+    ffmpeg
+    libexif
+    libjpeg
+    libtiff
+    libpng
+    libdrm
   ];
 
   nativeBuildInputs = [
@@ -39,11 +55,25 @@ stdenv.mkDerivation rec {
     ninja
     pkg-config
     python3
+    cmake
+    boost.dev
   ];
 
   mesonFlags = [
+    "-Denable_libav=disabled"
+    "-Ddownload_hailo_models=false"
+    "-Denable_egl=disabled"
+    "-Denable_qt=disabled"
+    "-Denable_hailo=disabled"
+    # "-Ddownload_imx500_models=false"
+    # "-Denable_imx500=false"
   ];
 
-  # Fixes error on a deprecated declaration
-  env.NIX_CFLAGS_COMPILE = "-Wno-error=deprecated-declarations";
+  env = {
+    # Fixes error on a deprecated declaration
+    NIX_CFLAGS_COMPILE = "-Wno-error=deprecated-declarations -I${lib.getDev boost}/include -L${lib.getDev boost}/lib";
+
+    BOOST_INCLUDEDIR = "${lib.getDev boost}/include";
+    BOOST_LIBRARYDIR = "${lib.getLib boost}/lib";
+  };
 }
