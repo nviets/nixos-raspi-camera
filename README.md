@@ -110,7 +110,8 @@ Downsides:
 
 ### Video streaming via the Gstreamer module shipped with libcamera (does not work)
 
-https://github.com/raspberrypi/libcamera
+* https://github.com/raspberrypi/libcamera?tab=readme-ov-file#using-gstreamer-plugin
+* Same here https://www.raspberrypi.com/documentation/computers/camera_software.html#libcamerasrc-gstreamer-element
 
 
 Raspi:
