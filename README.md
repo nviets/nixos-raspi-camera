@@ -1,8 +1,8 @@
-A set of [Nix](https://nixos.org/nix) expressions aimed at run video stremaing using Raspberry Pi 4
-model B on NixOS. The project is in a draft state and probably will remain there permanently. A one
-particular set of hardware is supported, see the [Hardware](#hardware) section. A number of problems
-has been revealed in the course of the development. For some of them the workarounds were found as
-described in the [Problems](#problems) section.
+A [NixOS](https://nixos.org) module to stream video from Raspberry Pi 4 model B. The project is in a
+draft state and will probably remain there permanently. Only one particular set of hardware is
+supported, see the [Hardware](#hardware) section. A number of problems has been revealed in the
+course of the development. For some of them the workarounds were found and described in the
+[Problems](#problems) section. Have fun!
 
 Contents
 --------
@@ -30,6 +30,7 @@ Hardware
 * [Raspberry Pi 4 model B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 * [Arducam camera sensor ov5647](https://docs.arducam.com/Raspberry-Pi-Camera/Native-camera/5MP-OV5647/)
 
+![](img/setup.png)
 
 Software
 --------
