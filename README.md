@@ -13,14 +13,14 @@ Contents
 * [Software](#software)
 * [Setting up](#setting-up)
 * [Usage notes](#usage-notes)
-  * [Detecting the camera](#detecting-the-camera)
-  * [Making a snapshot](#making-a-snapshot)
-  * [Video streaming using the rpicam-apps (works)](#video-streaming-using-the-rpicam-apps-works)
-  * [Video streaming via the Gstreamer module shipped with libcamera (does not work)](#video-streaming-via-the-gstreamer-module-shipped-with-libcamera-does-not-work)
+    * [Detecting the camera](#detecting-the-camera)
+    * [Making a snapshot](#making-a-snapshot)
+    * [Video streaming using the rpicam-apps (works)](#video-streaming-using-the-rpicam-apps-works)
+    * [Video streaming via the Gstreamer module shipped with libcamera (does not work)](#video-streaming-via-the-gstreamer-module-shipped-with-libcamera-does-not-work)
 * [Problems](#problems)
-  * [Where to find device tree overlay sources for the camera?](#where-to-find-device-tree-overlay-sources-for-the-camera)
-  * [Meson buildsystem does not detects boost on NixOS](#meson-buildsystem-does-not-detects-boost-on-nixos)
-  * [libcamera Gstreamer plugin reports timeout](#libcamera-gstreamer-plugin-reports-timeout)
+    * [Where to find device tree overlay sources for the camera?](#where-to-find-device-tree-overlay-sources-for-the-camera)
+    * [Meson buildsystem does not detect boost on NixOS](#meson-buildsystem-does-not-detect-boost-on-nixos)
+    * [libcamera Gstreamer plugin reports timeout](#libcamera-gstreamer-plugin-reports-timeout)
 
 <!-- vim-markdown-toc -->
 
