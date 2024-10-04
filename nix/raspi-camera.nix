@@ -42,12 +42,17 @@ with lib;
         {
         ${rpicam-apps}/bin/rpicam-vid -t 0 --inline -o - \
           --hflip --vflip --width 320 --height 240 \
+          2>/dev/null \
         | ${vlc}/bin/cvlc stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/stream1}' \
           :demux=h264 \
-        } >/dev/null 2>&1
+        ;
+        }
       '';
       after = [ "dtmerger.service" ];
       wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Restart = "always";
+      };
     };
 
     nixpkgs.config.permittedInsecurePackages = [
