@@ -15,6 +15,7 @@ Contents
 * [Usage notes](#usage-notes)
     * [Detecting the camera](#detecting-the-camera)
     * [Making a snapshot](#making-a-snapshot)
+    * [Video streaming with rpicam-apps RTSP mode (works)](#video-streaming-with-rpicam-apps-rtsp-mode-works)
     * [Video streaming using the rpicam-apps TCP mode (works)](#video-streaming-using-the-rpicam-apps-tcp-mode-works)
     * [Video streaming via the Gstreamer module shipped with libcamera (does not work)](#video-streaming-via-the-gstreamer-module-shipped-with-libcamera-does-not-work)
 * [Problems](#problems)
@@ -86,6 +87,21 @@ Available cameras:
 ### Making a snapshot
 
 TODO
+
+
+### Video streaming with rpicam-apps RTSP mode (works)
+
+Raspberry Pi:
+
+```shell
+rpicam-vid --hflip --vflip --width 320 --height 240 -t 0 --inline -o -  | cvlc stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/stream1}' :demux=h264
+```
+
+Client:
+
+``` shell
+ffplay rtsp://10.0.0.80:8554/stream1 -vf "setpts=N/30" -fflags nobuffer -flags low_delay -framedrop
+```
 
 ### Video streaming using the rpicam-apps TCP mode (works)
 
