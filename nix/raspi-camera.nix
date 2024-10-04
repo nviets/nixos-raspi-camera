@@ -1,6 +1,7 @@
 {pkgs, config, lib, ...}:
 let
   cfg = config.hardware.raspi-camera;
+  user = "rpicam-rtsp-server";
 in
 with lib;
 {
@@ -37,21 +38,33 @@ with lib;
       };
     };
 
+    users.groups."${user}" = {};
+
+    users.extraUsers."${user}" = {
+      group = user;
+      isSystemUser = true;
+      home = "/var/spool/${user}";
+      createHome = true;
+      extraGroups = [
+        "video" "plugdev"
+      ];
+    };
+
     systemd.services.rpicam-rtsp-server = {
       script = with pkgs; ''
-        {
         ${rpicam-apps}/bin/rpicam-vid -t 0 --inline -o - \
           --hflip --vflip --width 320 --height 240 \
           2>/dev/null \
         | ${vlc}/bin/cvlc stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/stream1}' \
           :demux=h264 \
         ;
-        }
       '';
       after = [ "dtmerger.service" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Restart = "always";
+        User = user;
+        Group = user;
       };
     };
 
