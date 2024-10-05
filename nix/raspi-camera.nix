@@ -2,7 +2,7 @@
 let
   cfg = config.hardware.raspi-camera;
   user = "rpicam-rtsp-server";
-  campkgs = import ./packages.nix { inherit pkgs };
+  campkgs = import ./packages.nix { inherit pkgs; };
 in
 with lib;
 {
