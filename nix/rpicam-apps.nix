@@ -17,6 +17,7 @@
 , libtiff
 , libpng
 , libdrm
+, opencv
 }:
 
 stdenv.mkDerivation rec {
@@ -48,6 +49,7 @@ stdenv.mkDerivation rec {
     libtiff
     libpng
     libdrm
+    opencv
   ];
 
   nativeBuildInputs = [
@@ -65,6 +67,7 @@ stdenv.mkDerivation rec {
     "-Denable_egl=disabled"
     "-Denable_qt=disabled"
     "-Denable_hailo=disabled"
+    "-Denable_opencv=enabled"
     # "-Ddownload_imx500_models=false"
     # "-Denable_imx500=false"
   ];

@@ -1,4 +1,5 @@
-{ pkgs }: {
+{ pkgs }: rec {
+  inherit pkgs;
 
   libpisp = pkgs.callPackage ./libpisp.nix {};
   libcamera = pkgs.callPackage ./libcamera-raspi.nix {

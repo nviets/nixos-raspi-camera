@@ -2,6 +2,7 @@
 let
   cfg = config.hardware.raspi-camera;
   user = "rpicam-rtsp-server";
+  campkgs = import ./packages.nix { inherit pkgs };
 in
 with lib;
 {
@@ -10,17 +11,7 @@ with lib;
     };
   };
 
-  config = let
-    libpisp = pkgs.callPackage ./libpisp.nix {};
-    libcamera = pkgs.callPackage ./libcamera-raspi.nix {
-      inherit libpisp;
-    };
-    dtmerger = pkgs.callPackage ./dtmerger.nix {};
-    rpicam-apps = pkgs.callPackage ./rpicam-apps.nix {
-      inherit libpisp libcamera;
-    };
-  in {
-
+  config = with campkgs; {
     services.udev = {
       extraRules = ''
         SUBSYSTEM=="dma_heap", GROUP="video", MODE="0660"
