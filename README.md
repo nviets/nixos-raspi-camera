@@ -44,10 +44,10 @@ later replaced by natively switching the system to its own configuraiton which i
 security reasons. In this repository we declare a few parts related to the camera service and its
 dependencies. The entry-points of this repo are:
 
-* [raspi-camera.nix](nix/raspi-camera.nix) NixOS module setting up a simple camera broadcasting
+* [raspi-camera.nix](nix/raspi-camera.nix) - NixOS module setting up a simple camera broadcasting
   service.
-* [libpisp.nix](nix/libpisp.nix) [libcamera-raspi.nix](nix/libcamera-raspi.nix)
-  [pricam-apps.nix](nix/rpicam-apps.nix) Nix build expressions for main dependencies
+* [libpisp.nix](nix/libpisp.nix) | [libcamera-raspi.nix](nix/libcamera-raspi.nix) |
+  [pricam-apps.nix](nix/rpicam-apps.nix) - Nix build expressions for main dependencies
 
 Setting up
 ----------
@@ -200,6 +200,6 @@ thread](https://forums.raspberrypi.com/viewtopic.php?t=323609). Unfortunately, r
 from the `/boot/config.txt` is not an option because NixOS only supports 64bit.
 
 The workaround was to [switch](#video-streaming-using-the-rpicam-apps-tcp-mode-works) to
-`rpicam-apps`.
+[rpicam-apps](https://github.com/raspberrypi/rpicam-apps).
 
 
