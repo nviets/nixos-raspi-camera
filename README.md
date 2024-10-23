@@ -38,10 +38,16 @@ Hardware
 Software
 --------
 
-In this setup, the Raspberry board runs NixOS, initially the cross-compiled [installation
-image](https://github.com/sergei-mironov/nixos-raspi-installer), later replaced by natively
-switching the system to a main configuraiton. The `raspi-camera.nix` module from this repo is
-supposed to be a part of such a configuraiton.
+In this setup, the Raspberry board runs [NixOS](https://nixos.org), initially from the
+cross-compiled [installation image](https://github.com/sergei-mironov/nixos-raspi-installer), later
+replaced by natively switching the system to it own dedicated configuraiton. This repository
+declares a few Raspi-camera specific parts as NixOS modules and expressions. The main build targets
+are:
+
+* [raspi-camera.nix](nix/raspi-camera.nix) NixOS module setting up a simple camera broadcasting
+  service.
+* [libpisp.nix](nix/libpisp.nix) [libcamera-raspi.nix](nix/libcamera-raspi.nix)
+  [pricam-apps.nix](nix/rpicam-apps.nix) Nix build expressions for main dependencies
 
 Setting up
 ----------
