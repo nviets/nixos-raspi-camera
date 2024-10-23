@@ -31,7 +31,9 @@ Hardware
 * [Raspberry Pi 4 model B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 * [Arducam camera sensor ov5647](https://docs.arducam.com/Raspberry-Pi-Camera/Native-camera/5MP-OV5647/)
 
-![](img/setup.png)
+<p align="center">
+  <img width="200" src="img/setup.png" />
+</p>
 
 Software
 --------
