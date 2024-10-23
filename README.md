@@ -52,9 +52,9 @@ dependencies. The entry-points of this repo are:
 Setting up
 ----------
 
-Here is how to add the dependency to a third-party Nix system configuration. Consider a typical
-`flake.nix`. We add [1] `raspi-camera` input, optionally linking its nixpkgs [2] to your favorite
-one. Next we add corresponding output argument and include its module to the your system's
+Here is how to add the rapi-camera dependency to a third-party Nix system configuration. Consider a
+typical `flake.nix`. We add [1] `raspi-camera` input, optionally linking its nixpkgs [2] to your
+favorite one. Next we add corresponding output argument and include its module to the your system's
 configuration [4].
 
 ``` nix
