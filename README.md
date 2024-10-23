@@ -38,11 +38,11 @@ Hardware
 Software
 --------
 
-In this setup, the Raspberry board runs [NixOS](https://nixos.org), initially from the
-cross-compiled [installation image](https://github.com/sergei-mironov/nixos-raspi-installer), later
-replaced by natively switching the system to it own dedicated configuraiton. This repository
-declares a few Raspi-camera specific parts as NixOS modules and expressions. The main build targets
-are:
+In this setup, the Raspberry board runs [NixOS](https://nixos.org), initially obtaine by
+cross-compiling the [installation image](https://github.com/sergei-mironov/nixos-raspi-installer),
+later replaced by natively switching the system to its own configuraiton which is not published for
+security reasons. In this repository we declare a few parts related to the camera service and its
+dependencies. The entry-points of this repo are:
 
 * [raspi-camera.nix](nix/raspi-camera.nix) NixOS module setting up a simple camera broadcasting
   service.
@@ -52,25 +52,29 @@ are:
 Setting up
 ----------
 
-Template flake.nix
+Here is how to add the dependency to a third-party Nix system configuration. Consider a typical
+`flake.nix`. We add [1] `raspi-camera` input, optionally linking its nixpkgs [2] to your favorite
+one. Next we add corresponding output argument and include its module to the your system's
+configuration [4].
 
 ``` nix
 {
   inputs = rec {
-    raspi-camera = {
+
+    raspi-camera = { # [1]
       url = "github:sergei-mironov/nixos-raspi-camera";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs"; # [2]
     };
 
     ...
   };
-  outputs = { self, ... , raspi-camera } : {
+  outputs = { self, ... , raspi-camera } : { # [3]
     nixosConfigurations = {
       raspi = nixpkgs.lib.nixosSystem rec {
         system = "aarch64-linux";
         modules = [
           ...
-          raspi-camera.nixosModules.raspi-camera
+          raspi-camera.nixosModules.raspi-camera # [4]
           ...
         ];
       };
