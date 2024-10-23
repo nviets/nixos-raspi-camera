@@ -32,7 +32,7 @@ Hardware
 * [Arducam camera sensor ov5647](https://docs.arducam.com/Raspberry-Pi-Camera/Native-camera/5MP-OV5647/)
 
 <p align="center">
-  <img width="200" src="img/setup.png" />
+  <img width="400" src="img/setup.png" />
 </p>
 
 Software
