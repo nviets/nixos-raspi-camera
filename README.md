@@ -104,10 +104,12 @@ TODO
 
 ### Video streaming with rpicam-apps RTSP mode (works)
 
+This is the preferred way which we encoded into the systemd streaming service.
+
 Raspberry Pi:
 
 ```shell
-rpicam-vid --hflip --vflip --width 320 --height 240 -t 0 --inline -o -  | cvlc stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/stream1}' :demux=h264
+rpicam-vid --width 320 --height 240 -t 0 --inline -o -  | cvlc stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/stream1}' :demux=h264
 ```
 
 Client:
