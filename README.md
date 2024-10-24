@@ -1,7 +1,7 @@
-A [NixOS](https://nixos.org) module to stream video from Raspberry Pi 4 model B. The project is in a
-draft state and will probably remain there permanently. Only one particular set of hardware is
-supported, see the [Hardware](#hardware) section. A number of problems has been revealed in the
-course of the development. For some of them the workarounds were found and described in the
+A [NixOS](https://nixos.org) module to stream video from the Raspberry Pi 4 Model B. The project is
+in a draft state and will probably remain there permanently. Only one particular set of hardware is
+supported; see the [Hardware](#hardware) section. A number of problems have been revealed in the
+course of development. For some of them, workarounds were found and are described in the
 [Problems](#problems) section. Have fun!
 
 Contents
@@ -38,11 +38,11 @@ Hardware
 Software
 --------
 
-In this setup, the Raspberry board runs [NixOS](https://nixos.org), initially obtaine by
-cross-compiling the [installation image](https://github.com/sergei-mironov/nixos-raspi-installer),
-later replaced by natively switching the system to its own configuraiton which is not published for
-security reasons. In this repository we declare a few parts related to the camera service and its
-dependencies. The entry-points of this repo are:
+In this setup, the Raspberry Pi board runs [NixOS](https://nixos.org), initially obtained by
+cross-compiling the [installation image](https://github.com/sergei-mironov/nixos-raspi-installer).
+This image is later replaced by natively switching the system to its own configuration, which is not
+published for security reasons. In this repository, we declare a few components related to the
+camera service and its dependencies. The entry points of this repository are:
 
 * [raspi-camera.nix](nix/raspi-camera.nix) - NixOS module setting up a simple camera broadcasting
   service.
