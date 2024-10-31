@@ -54,20 +54,19 @@ Setting up
 
 Here is how to add the rapi-camera dependency to a third-party Nix system configuration.
 
-Consider a typical `flake.nix`. We add `raspi-camera` flake input [1], optionally link its nixpkgs
-[2] to what other inputs use. Next we add the corresponding output argument [3] and finally include
-the main module to your system's configuration [4].
+Consider a typical `flake.nix`. To use `raspi-camera`, we add flake input [1], optionally link its
+nixpkgs [2] to what other inputs use. Next we add corresponding output argument [3] and finally
+include raspi-camera module to the system's configuration [4].
 
 ``` nix
 {
   inputs = rec {
+    ...
 
     raspi-camera = { # [1]
       url = "github:sergei-mironov/nixos-raspi-camera";
       inputs.nixpkgs.follows = "nixpkgs"; # [2]
     };
-
-    ...
   };
   outputs = { self, ... , raspi-camera } : { # [3]
     nixosConfigurations = {
