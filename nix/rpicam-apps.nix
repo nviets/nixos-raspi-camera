@@ -10,7 +10,7 @@
 , pkg-config
 , boost
 , cmake
-, libav
+#, libav
 , ffmpeg
 , libexif
 , libjpeg
@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     libcamera
     libpisp
-    libav
+    #libav
     ffmpeg
     libexif
     libjpeg
